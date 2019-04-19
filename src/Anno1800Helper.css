@@ -1,0 +1,20 @@
+@import '~antd/dist/antd.css';
+
+.Anno1800Helper {
+  text-align: center;
+}
+
+.Anno1800Helper-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Anno1800Helper-link {
+  color: #61dafb;
+}
