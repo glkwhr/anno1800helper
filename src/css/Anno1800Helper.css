@@ -1,0 +1,20 @@
+@import '../../node_modules/antd/dist/antd.css';
+
+.Anno1800Helper {
+  background-color: #282c34;
+  text-align: center;
+  color: white;
+  min-height: 100vh;
+}
+
+.Anno1800Helper-content {
+  padding-top: 36px;
+}
+
+.Anno1800Helper-PopulationLevelInput {
+  padding-left: 36px;
+}
+
+.Anno1800Helper-link {
+  color: #61dafb;
+}

@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Anno1800Helper from './Anno1800Helper';
+import Anno1800Helper from './components/Anno1800Helper.react';
+import './css/index.css';
+
+import {params} from './data/params_2019-04-17_full';
 import * as serviceWorker from './serviceWorker';
-import { params } from './data/params_2019-04-17_full'
 
 ReactDOM.render(<Anno1800Helper data={params}/>, document.getElementById('root'));
 
