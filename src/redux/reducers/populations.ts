@@ -1,6 +1,6 @@
 import {Action, UPDATE_POPULATION} from "../actions/actionTypes";
 
-const initialState: {[guid: number]: number} = {};
+const initialState: { [guid: number]: number } = {};
 
 export default function (state = initialState, action: Action) {
   switch (action.type) {
@@ -10,7 +10,7 @@ export default function (state = initialState, action: Action) {
       return newState;
     }
     default: {
-      return state;
+      return {...state};
     }
   }
 }

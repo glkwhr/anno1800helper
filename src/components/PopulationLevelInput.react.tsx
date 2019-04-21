@@ -38,11 +38,11 @@ class PopulationLevelInput extends React.Component<Props> {
       <Row className="Anno1800Helper-PopulationLevelInput" type="flex" justify="center" align="middle">
         <Col span={8}>
           <img src={this.props.populationLevel.icon} alt={'Failed to Load'}/>
-          <p>
-            <LocalizedText localText={this.props.populationLevel.locaText}/>
-          </p>
         </Col>
         <Col span={12}>
+          <div style={{textAlign: 'left', paddingBottom: 1}}>
+            <LocalizedText localText={this.props.populationLevel.locaText}/>
+          </div>
           <InputNumber style={{width: '100%'}} defaultValue={0} min={0} step={1} precision={0}
                        onChange={this.onChange}/>
         </Col>

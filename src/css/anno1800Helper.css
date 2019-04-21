@@ -2,27 +2,51 @@
 
 .Anno1800Helper {
   background-color: #282c34;
-  text-align: center;
   color: white;
   min-height: 100vh;
 }
 
-.Anno1800Helper-PageHeader {
+.Anno1800Helper-Header {
   background-color: #070A15;
 }
 
+.Anno1800Helper-PageHeader {
+  background-color: transparent;
+}
+
+.Anno1800Helper-PageHeader-title {
+  color: white;
+  font-size: large;
+}
+
 .Anno1800Helper-LanguageSelector{
-  padding-bottom: 5px;
 }
 
 .Anno1800Helper-content {
-  padding-top: 36px;
+  padding-top: 10px;
   max-width: 800px;
   align-self: center;
+  justify-content: center;
+}
+
+.Anno1800Helper-CalculateButton {
+  padding-top: 10px;
 }
 
 .Anno1800Helper-PopulationLevelInput {
-  /*padding-left: 24px;*/
+  padding-top: 10px;
+  text-align: center;
+}
+.Anno1800Helper-ProductionOverview {
+  padding-top: 30px;
+}
+
+.Anno1800Helper-FactoryContainer {
+  background-color: #424f51;
+  border: 2px solid black;
+  border-top: none;
+  border-left: none;
+  border-radius: 5px;
 }
 
 .Anno1800Helper-link {

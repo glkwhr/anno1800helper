@@ -1,4 +1,4 @@
-import {Action, UPDATE_LANGUAGE} from "../actions/actionTypes";
+import {Action, UPDATE_LANGUAGE} from '../actions/actionTypes';
 
 const initialState: string = 'english';
 
