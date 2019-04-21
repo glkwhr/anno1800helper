@@ -1,5 +1,3 @@
-import * as React from "react";
-
 export interface BasicItem {
   name: string,
   guid: number,
@@ -19,6 +17,12 @@ export interface PopulationLevel extends BasicItem {
 }
 
 export interface Product extends BasicItem {
+}
+
+export type State = {
+  language: string,
+  populations: {[guid: number]: number},
+  // factoryBoosts: {[guid: number]: number},
 }
 
 export const LANG_MAP: { [key: string]: string } = {

@@ -1,11 +1,13 @@
-import {Button, Col, Layout, Row} from 'antd';
+import {Button, Col, Layout, PageHeader, Row} from 'antd';
 import * as React from 'react';
-import '../css/Anno1800Helper.css';
-import {LANG_MAP, PopulationLevel} from './Anno1800HelperTypes.react';
-import PopulationLevelInput from "./PopulationLevelInput.react";
+import '../css/anno1800Helper.css';
+import {LANG_MAP, PopulationLevel} from '../types';
+import LanguageSelector from './LanguageSelector.react';
+import LocalizedText from "./LocalizedText.react";
+import PopulationLevelInput from './PopulationLevelInput.react';
 
 const {
-  Header, Footer, Sider, Content,
+  Content,
 } = Layout;
 
 type Props = {
@@ -14,39 +16,45 @@ type Props = {
 
 class Anno1800Helper extends React.Component<Props> {
 
-  language: string;
   populationLevels: [PopulationLevel];
 
   constructor(props: Props) {
     super(props);
-    this.language = LANG_MAP[navigator.language] || 'english';
     this.populationLevels = props.data.populationLevels;
   }
 
-  onChange = (value: number) => {
-    console.log(value);
+  createPopulationLevelInputs(): [React.Component] {
+    const elements: any = [];
+    this.populationLevels.forEach((populationLevel: PopulationLevel, idx: number) => {
+      elements.push(
+        <Col key={idx} sm={8} xs={12}>
+          <PopulationLevelInput populationLevel={populationLevel}/>
+        </Col>
+      );
+    });
+    return elements;
   }
 
   render() {
     return (
       <Layout className="Anno1800Helper">
-        <Header>
-          <header>Anno 1800 Helper</header>
-        </Header>
-        <Content className="Anno1800Helper-content">
+        <PageHeader className="Anno1800Helper-PageHeader"
+                    title={
+                      <div style={{color: 'white'}}>
+                        <LocalizedText
+                          localText={{'english': 'Anno 1800 Helper', 'chinese': '纪元1800助手'}}/>
+                      </div>}
+                    extra={
+                      <div>
+                        <LanguageSelector languages={this.props.data.languages}
+                                          defaultValue={LANG_MAP[navigator.language] || "english"}/>
+                      </div>
+                    }>
+        </PageHeader>
+        <Content
+          className="Anno1800Helper-content">
           <Row type="flex" justify="center" align="middle">
-            <Col>
-              <PopulationLevelInput populationLevel={this.populationLevels[0]} language={this.language}
-                                    onChange={this.onChange}/>
-            </Col>
-            <Col>
-              <PopulationLevelInput populationLevel={this.populationLevels[0]} language={this.language}
-                                    onChange={this.onChange}/>
-            </Col>
-            <Col>
-              <PopulationLevelInput populationLevel={this.populationLevels[0]} language={this.language}
-                                    onChange={this.onChange}/>
-            </Col>
+            {this.createPopulationLevelInputs()}
           </Row>
           <Button type="primary">Primary</Button>
         </Content>

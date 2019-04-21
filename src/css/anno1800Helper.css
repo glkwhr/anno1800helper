@@ -7,12 +7,22 @@
   min-height: 100vh;
 }
 
+.Anno1800Helper-PageHeader {
+  background-color: #070A15;
+}
+
+.Anno1800Helper-LanguageSelector{
+  padding-bottom: 5px;
+}
+
 .Anno1800Helper-content {
   padding-top: 36px;
+  max-width: 800px;
+  align-self: center;
 }
 
 .Anno1800Helper-PopulationLevelInput {
-  padding-left: 36px;
+  /*padding-left: 24px;*/
 }
 
 .Anno1800Helper-link {

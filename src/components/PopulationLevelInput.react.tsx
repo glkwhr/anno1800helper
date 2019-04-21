@@ -1,55 +1,60 @@
 import {Col, InputNumber, Row} from 'antd';
 import * as React from 'react';
-import {PopulationLevel} from './Anno1800HelperTypes.react';
+import {connect} from "react-redux";
+import {updatePopulation} from "../redux/actions/actions";
+import {getPopulationByGuid} from "../redux/selector";
+import {PopulationLevel} from '../types';
+import LocalizedText from "./LocalizedText.react";
 
-type Props = {
+// Accepted by the component
+interface ComponentOwnProps {
   populationLevel: PopulationLevel,
-  language: string,
-  onChange: (value: number) => void,
 }
 
-type State = {
-  count: number,
+// Received from mapStateToProps
+interface ComponentStateProps {
+  population: number,
 }
 
-class PopulationLevelInput extends React.Component<Props, State> {
+// Received from mapDispatchToProps
+interface ComponentDispatchProps {
+  updatePopulation: any,
+}
 
-  constructor(props: Props) {
-    super(props);
-  }
+type Props = ComponentOwnProps & ComponentStateProps & ComponentDispatchProps;
 
-  getName(language: string): string {
-    return this.props.populationLevel.locaText[language];
-  }
+class PopulationLevelInput extends React.Component<Props> {
 
   onChange = (value: number | undefined) => {
     let newValue: number = 0;
     if (typeof value === 'number') {
       newValue = value;
     }
-    this.setState({count: newValue});
-    this.props.onChange(newValue);
-  }
+    this.props.updatePopulation(this.props.populationLevel.guid, newValue);
+  };
 
   render() {
     return (
-      <Row className="Anno1800Helper-PopulationLevelInput" type="flex" justify="space-around" align="middle">
-        <Col span={12}>
-          <Row>
-            <img src={this.props.populationLevel.icon}/>
-          </Row>
-          <Row>
-            <p>
-              {this.getName(this.props.language)}
-            </p>
-          </Row>
+      <Row className="Anno1800Helper-PopulationLevelInput" type="flex" justify="center" align="middle">
+        <Col span={8}>
+          <img src={this.props.populationLevel.icon} alt={'Failed to Load'}/>
+          <p>
+            <LocalizedText localText={this.props.populationLevel.locaText}/>
+          </p>
         </Col>
         <Col span={12}>
-          <InputNumber defaultValue={0} min={0} step={1} precision={0} onChange={this.onChange}/>
+          <InputNumber style={{width: '100%'}} defaultValue={0} min={0} step={1} precision={0}
+                       onChange={this.onChange}/>
         </Col>
       </Row>
     );
   }
 }
 
-export default PopulationLevelInput;
+const mapStateToProps = (state: any, ownProps: ComponentOwnProps) => {
+  return {
+    population: getPopulationByGuid(state, ownProps.populationLevel.guid),
+  };
+};
+
+export default connect(mapStateToProps, {updatePopulation})(PopulationLevelInput);
