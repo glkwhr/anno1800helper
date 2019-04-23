@@ -6,30 +6,37 @@ export interface BasicItem {
 }
 
 export interface Need {
-  tpmin: number | null,
+  tpmin: number,
   guid: number,
   happiness?: number,
 }
 
+export interface TotalNeeds {
+  [guid: number]: { totalTpmin: number }
+}
+
 export interface PopulationLevel extends BasicItem {
+  type: 'PopulationLevel',
   fullHouse: number,
   needs: [Need],
 }
 
 export interface Product extends BasicItem {
+  type: 'Product',
   producer?: number,  // producer guid
 }
 
-export interface FactoryProduct {
-  guid: number,
-  amount: number,
-  storageAmount: number,
+export interface FactoryProductMeta {
+  Product: number,
+  Amount: number,
+  StorageAmount: number,
 }
 
 export interface Factory extends BasicItem {
+  type: 'Factory',
   tpmin: number,  // unit per minute
-  outputs: [FactoryProduct],
-  inputs?: [FactoryProduct],
+  outputs: [FactoryProductMeta],
+  inputs?: [FactoryProductMeta],
   maintenance?: any,  // currently don't care
 }
 
@@ -41,9 +48,7 @@ export type FactoryState = {
 export type State = {
   language: string,
   populations: { [guid: number]: number },
-  factoryStates: {
-    [guid: number]: FactoryState;
-  },
+  factoryStates: { [guid: number]: FactoryState },
 };
 
 export type GuidMap<T> = { [key: number]: T };

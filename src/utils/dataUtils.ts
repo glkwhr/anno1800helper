@@ -1,11 +1,14 @@
 import {params} from '../data/params_2019-04-17_full';
-import {Factory, GuidMap, PopulationLevel} from "../types";
+import {Factory, GuidMap, PopulationLevel, Product} from "../types";
 
 export const selectPopulationLevels = (): any => {
   return params.populationLevels;
 };
 export const selectFactories = (): any => {
   return params.factories;
+};
+export const selectProducts = (): any => {
+  return params.products;
 };
 export const selectLanguages = (): any => {
   return params.languages;
@@ -33,10 +36,21 @@ function createFactoryGuidMap(): GuidMap<Factory> {
   return factoryGuidMap;
 }
 
+function createProductGuidMap(): GuidMap<Product> {
+  let productGuidMap: GuidMap<Product> = {};
+  selectProducts().forEach(
+    (product: Product) => {
+      productGuidMap[product.guid] = product;
+    }
+  );
+  return productGuidMap;
+}
+
 
 // guid maps
 const populationLevelGuidMap: GuidMap<PopulationLevel> = createPopulationLevelGuidMap();
 const factoryGuidMap: GuidMap<Factory> = createFactoryGuidMap();
+const productGuidMap: GuidMap<Product> = createProductGuidMap();
 
 
 // selector functions
@@ -45,4 +59,7 @@ export const selectPopulationLevelByGuid = (guid: number): PopulationLevel => {
 };
 export const selectFactoryByGuid = (guid: number): Factory => {
   return factoryGuidMap[guid] || {};
+};
+export const selectProductByGuid = (guid: number): Product => {
+  return productGuidMap[guid] || {};
 };

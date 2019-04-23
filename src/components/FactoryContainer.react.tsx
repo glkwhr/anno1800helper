@@ -64,7 +64,8 @@ class FactoryContainer extends React.Component<Props> {
               <InputNumber
                 style={{width: '100%'}}
                 size={'small'}
-                defaultValue={this.props.factoryState.count}
+                defaultValue={0}
+                value={this.props.factoryState.count}
                 min={0}
                 step={1}
                 precision={0}
@@ -75,6 +76,7 @@ class FactoryContainer extends React.Component<Props> {
                 style={{width: '100%'}}
                 size={'small'}
                 defaultValue={100}
+                value={this.props.factoryState.boost}
                 min={0}
                 step={1}
                 precision={0}

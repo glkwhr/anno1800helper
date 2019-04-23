@@ -9,5 +9,5 @@ export const getPopulationByGuid = (store: State, guid: number): number => {
 
 export const getFactoryStates = (store: State) => store.factoryStates;
 export const getFactoryStateByGuid = (store: State, guid: number): FactoryState => {
-  return (getFactoryStates(store) && getFactoryStates(store)[guid]) || {boost: 100, count: 0};
+  return (getFactoryStates(store) && {...getFactoryStates(store)[guid]}) || {boost: 100, count: 0};
 };

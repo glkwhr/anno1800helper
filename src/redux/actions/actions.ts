@@ -1,4 +1,11 @@
-import {UPDATE_FACTORY_BOOST, UPDATE_FACTORY_COUNT, UPDATE_LANGUAGE, UPDATE_POPULATION} from './actionTypes';
+import {FactoryState} from "../../types";
+import {
+  UPDATE_FACTORY_BOOST,
+  UPDATE_FACTORY_COUNT,
+  UPDATE_FACTORY_STATES,
+  UPDATE_LANGUAGE,
+  UPDATE_POPULATION
+} from './actionTypes';
 
 export const updateLanguage = (newLanguage: string) => {
   return {
@@ -35,6 +42,15 @@ export const updateFactoryBoost = (guid: number, newFactoryBoost: number) => {
     payload: {
       guid: guid,
       boost: newFactoryBoost,
+    }
+  };
+};
+
+export const updateFactoryStates = (newFactoryStates: { [guid: number]: FactoryState }) => {
+  return {
+    type: UPDATE_FACTORY_STATES,
+    payload: {
+      newFactoryStates: newFactoryStates,
     }
   };
 };

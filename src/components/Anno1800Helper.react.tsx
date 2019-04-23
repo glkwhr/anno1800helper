@@ -1,12 +1,13 @@
-import {Button, Col, Layout, PageHeader, Row} from 'antd';
+import {Col, Layout, PageHeader, Row} from 'antd';
 import * as React from 'react';
 import '../css/anno1800Helper.css';
 import {LANG_MAP, PopulationLevel} from '../types';
 import * as DataUtils from '../utils/dataUtils';
+import CalculateButton from './CalculateButton.react';
 import LanguageSelector from './LanguageSelector.react';
 import LocalizedText from "./LocalizedText.react";
 import PopulationLevelInput from './PopulationLevelInput.react';
-import ProductionOverview from "./ProductionOverview.react";
+import ProductionOverview from './ProductionOverview.react';
 
 const {
   Header, Content,
@@ -57,10 +58,9 @@ class Anno1800Helper extends React.Component {
             {this.createPopulationLevelInputs()}
           </Row>
           <Row type="flex" justify="center" align="middle">
-            <Button type="primary" size="large">
-              <LocalizedText
-                localText={{'english': 'Calculate', 'chinese': '计算'}}/>
-            </Button>
+            <div className="Anno1800Helper-CalculateButton">
+              <CalculateButton/>
+            </div>
           </Row>
           <div className="Anno1800Helper-ProductionOverview">
             <ProductionOverview/>
