@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/anno1800helper/static/css/2.e464e0be.chunk.css"
   },
   {
-    "revision": "5ab18118e352792b68d7fe8ec975c000",
+    "revision": "dde179be89f87ada821d554250b53d82",
     "url": "/anno1800helper/index.html"
   }
 ];
