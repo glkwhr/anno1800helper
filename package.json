@@ -31,5 +31,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {}
+  "devDependencies": {},
+  "homepage" : "http://glkwhr.github.io/anno1800helper"
 }
