@@ -67,7 +67,14 @@ class Anno1800Helper extends React.Component {
           </div>
         </Content>
         <Footer className="Anno1800Helper-footer">
-          Anno 1800 Helper | Developed by glkwhr
+          <Row type="flex" justify="center" align="middle">
+            {'Anno 1800 Helper |'}
+            <iframe
+              style={{paddingLeft: 5}}
+              src="https://ghbtns.com/github-btn.html?user=glkwhr&repo=Anno1800Helper&type=star&count=true"
+              frameBorder="0"
+              scrolling="0" width="120px" height="20px"/>
+          </Row>
         </Footer>
       </Layout>
     )
