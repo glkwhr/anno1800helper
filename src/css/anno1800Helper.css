@@ -29,6 +29,12 @@
   justify-content: center;
 }
 
+.Anno1800Helper-footer {
+  text-align: center;
+  background-color: #070A15;
+  color: white;
+}
+
 .Anno1800Helper-CalculateButton {
   padding-top: 30px;
 }

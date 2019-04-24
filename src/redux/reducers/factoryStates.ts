@@ -10,6 +10,7 @@ export default function (state = initialState, action: Action) {
       newState[action.payload.guid] = {
         boost: (newState[action.payload.guid] && newState[action.payload.guid].boost) || 100,
         count: action.payload.count,
+        neededTpmin: (newState[action.payload.guid] && newState[action.payload.guid].neededTpmin) || 0,
       };
       return newState;
     }
@@ -18,11 +19,12 @@ export default function (state = initialState, action: Action) {
       newState[action.payload.guid] = {
         boost: action.payload.boost,
         count: (newState[action.payload.guid] && newState[action.payload.guid].count) || 0,
+        neededTpmin: (newState[action.payload.guid] && newState[action.payload.guid].neededTpmin) || 0,
       };
       return newState;
     }
     case UPDATE_FACTORY_STATES: {
-      return {...action.payload.newFactoryStates};
+      return action.payload.newFactoryStates;
     }
     default: {
       return {...state};

@@ -16,14 +16,17 @@ export interface TotalNeeds {
 }
 
 export interface PopulationLevel extends BasicItem {
-  type: 'PopulationLevel',
   fullHouse: number,
   needs: [Need],
 }
 
 export interface Product extends BasicItem {
-  type: 'Product',
   producer?: number,  // producer guid
+}
+
+// product category
+export interface ProductFilter extends BasicItem {
+  products: [number];
 }
 
 export interface FactoryProductMeta {
@@ -33,7 +36,6 @@ export interface FactoryProductMeta {
 }
 
 export interface Factory extends BasicItem {
-  type: 'Factory',
   tpmin: number,  // unit per minute
   outputs: [FactoryProductMeta],
   inputs?: [FactoryProductMeta],
@@ -43,6 +45,7 @@ export interface Factory extends BasicItem {
 export type FactoryState = {
   boost: number,  // in percentage (no decimal)
   count: number,
+  neededTpmin: number,
 };
 
 export type State = {

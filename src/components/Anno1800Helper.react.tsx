@@ -10,7 +10,7 @@ import PopulationLevelInput from './PopulationLevelInput.react';
 import ProductionOverview from './ProductionOverview.react';
 
 const {
-  Header, Content,
+  Header, Content, Footer,
 } = Layout;
 
 class Anno1800Helper extends React.Component {
@@ -66,6 +66,9 @@ class Anno1800Helper extends React.Component {
             <ProductionOverview/>
           </div>
         </Content>
+        <Footer className="Anno1800Helper-footer">
+          Anno 1800 Helper | Developed by glkwhr
+        </Footer>
       </Layout>
     )
   }

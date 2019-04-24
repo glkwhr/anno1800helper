@@ -31,11 +31,16 @@ function getNextFactoryStates(
       if (product.producer) {
         let factory: Factory = DataUtils.selectFactoryByGuid(product.producer);
         let boost: number = (preFactoryStates[factory.guid] && preFactoryStates[factory.guid].boost) || 100;
-        let factoryCount: number =
-          Math.ceil(totalNeeds[guid].totalTpmin * 100 / boost / factory.tpmin);
-        (nextFactoryStates[factory.guid]
-          && (nextFactoryStates[factory.guid].count = factoryCount))
-        || (nextFactoryStates[factory.guid] = {boost: boost, count: factoryCount});
+        let factoryCount: number = calculateFactoryCountFromFactoryBoost(
+          boost,
+          factory.tpmin,
+          totalNeeds[guid].totalTpmin
+        );
+        (nextFactoryStates[factory.guid] = {
+          boost: boost,
+          count: factoryCount,
+          neededTpmin: totalNeeds[guid].totalTpmin
+        });
       }
     }
   );
@@ -82,4 +87,12 @@ export function calculateNextFactoryStates(
   );
 
   return getNextFactoryStates(totalNeeds, preFactoryStates);
+}
+
+export function calculateFactoryCountFromFactoryBoost(boost: number, factoryTpmin: number, totalTpmin: number): number {
+  return Math.ceil(totalTpmin * 100 / boost / factoryTpmin);
+}
+
+export function calculateFactoryBoostFromFactoryCount(count: number, factoryTpmin: number, totalTpmin: number): number {
+  return (100 * totalTpmin / factoryTpmin / count);
 }

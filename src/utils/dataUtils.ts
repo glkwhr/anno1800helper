@@ -13,6 +13,9 @@ export const selectProducts = (): any => {
 export const selectLanguages = (): any => {
   return params.languages;
 };
+export const selectProductFilters = (): any => {
+  return params.productFilter;
+};
 
 
 // Functions that generates guid maps
@@ -62,4 +65,8 @@ export const selectFactoryByGuid = (guid: number): Factory => {
 };
 export const selectProductByGuid = (guid: number): Product => {
   return productGuidMap[guid] || {};
+};
+export const selectFactoryByProductGuid = (guid: number): Factory | undefined => {
+  let product: Product = selectProductByGuid(guid);
+  return (product.producer && selectFactoryByGuid(product.producer)) || undefined;
 };
