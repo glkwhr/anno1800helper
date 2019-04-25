@@ -39,12 +39,17 @@
   padding-top: 30px;
 }
 
+.Anno1800Helper-HelpButton {
+  padding-top: 35px;
+}
+
 .Anno1800Helper-PopulationLevelInput {
   padding-top: 10px;
   text-align: center;
 }
 .Anno1800Helper-ProductionOverview {
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .Anno1800Helper-FactoryContainer {

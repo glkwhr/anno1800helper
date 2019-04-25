@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build -b master -e docs --remove docs/.*"
+    "deploy": "gh-pages -b master -d build -e docs"
   },
   "eslintConfig": {
     "extends": "react-app"

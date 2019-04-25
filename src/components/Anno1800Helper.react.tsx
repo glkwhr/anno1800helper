@@ -1,9 +1,11 @@
 import {Col, Layout, PageHeader, Row} from 'antd';
 import * as React from 'react';
 import '../css/anno1800Helper.css';
+import {PAGE_HEADER_TITLE_LOCALTEXT} from "../constants";
 import {LANG_MAP, PopulationLevel} from '../types';
 import * as DataUtils from '../utils/dataUtils';
 import CalculateButton from './CalculateButton.react';
+import HelperModalButton from "./HelperModalButton.react";
 import LanguageSelector from './LanguageSelector.react';
 import LocalizedText from "./LocalizedText.react";
 import PopulationLevelInput from './PopulationLevelInput.react';
@@ -42,7 +44,7 @@ class Anno1800Helper extends React.Component {
                       title={
                         <div className="Anno1800Helper-PageHeader-title">
                           <LocalizedText
-                            localText={{'english': 'Anno 1800 Helper', 'chinese': '纪元1800助手'}}/>
+                            localText={PAGE_HEADER_TITLE_LOCALTEXT}/>
                         </div>}
                       extra={
                         <div className="Anno1800Helper-LanguageSelector">
@@ -57,10 +59,13 @@ class Anno1800Helper extends React.Component {
           <Row type="flex" justify="start" align="middle">
             {this.createPopulationLevelInputs()}
           </Row>
-          <Row type="flex" justify="center" align="middle">
-            <div className="Anno1800Helper-CalculateButton">
+          <Row align="middle">
+            <Col xs={{span: 4, offset: 10}} sm={{span: 4, offset: 11}} className="Anno1800Helper-CalculateButton">
               <CalculateButton/>
-            </div>
+            </Col>
+            <Col xs={{span: 4, offset: 3}} sm={{span: 1, offset: 1}} className="Anno1800Helper-HelpButton">
+              <HelperModalButton/>
+            </Col>
           </Row>
           <div className="Anno1800Helper-ProductionOverview">
             <ProductionOverview/>

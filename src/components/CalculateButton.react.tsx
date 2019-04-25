@@ -1,6 +1,7 @@
-import {Button, Tooltip} from "antd";
+import {Button} from "antd";
 import * as React from 'react';
 import {connect} from "react-redux";
+import {CALCULATE_BUTTON_TEXT_LOCALTEXT} from "../constants";
 import {updateFactoryStates} from "../redux/actions/actions";
 import {getFactoryStates, getPopulations} from "../redux/selector";
 import {FactoryState} from "../types";
@@ -28,21 +29,9 @@ class CalculateButton extends React.Component<Props> {
 
   render() {
     return (
-      <Tooltip placement="bottom"
-               title={
-                 <LocalizedText localText={
-                   {
-                     english: 'Calculate factory counts based on population',
-                     chinese: '按照人口需求计算所需工厂数量'
-                   }
-                 }
-                 />
-               }>
-        <Button type="primary" size="large" onClick={this.onClick}>
-          <LocalizedText
-            localText={{'english': 'Calculate', 'chinese': '计算'}}/>
-        </Button>
-      </Tooltip>
+      <Button type="primary" size="large" onClick={this.onClick}>
+        <LocalizedText localText={CALCULATE_BUTTON_TEXT_LOCALTEXT}/>
+      </Button>
     );
   }
 }
