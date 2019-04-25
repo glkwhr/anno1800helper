@@ -1,15 +1,15 @@
 {
-  "main.css": "/anno1800helper/static/css/main.2cc3ebec.chunk.css",
-  "main.js": "/anno1800helper/static/js/main.441bcf47.chunk.js",
-  "main.js.map": "/anno1800helper/static/js/main.441bcf47.chunk.js.map",
+  "main.css": "/anno1800helper/static/css/main.e0740451.chunk.css",
+  "main.js": "/anno1800helper/static/js/main.3fd0b5dc.chunk.js",
+  "main.js.map": "/anno1800helper/static/js/main.3fd0b5dc.chunk.js.map",
   "runtime~main.js": "/anno1800helper/static/js/runtime~main.326bd53b.js",
   "runtime~main.js.map": "/anno1800helper/static/js/runtime~main.326bd53b.js.map",
   "static/css/2.e464e0be.chunk.css": "/anno1800helper/static/css/2.e464e0be.chunk.css",
-  "static/js/2.2e6b4f4a.chunk.js": "/anno1800helper/static/js/2.2e6b4f4a.chunk.js",
-  "static/js/2.2e6b4f4a.chunk.js.map": "/anno1800helper/static/js/2.2e6b4f4a.chunk.js.map",
+  "static/js/2.58826134.chunk.js": "/anno1800helper/static/js/2.58826134.chunk.js",
+  "static/js/2.58826134.chunk.js.map": "/anno1800helper/static/js/2.58826134.chunk.js.map",
   "index.html": "/anno1800helper/index.html",
-  "precache-manifest.d126ce9f72e3697b3f15cffaf7d46247.js": "/anno1800helper/precache-manifest.d126ce9f72e3697b3f15cffaf7d46247.js",
+  "precache-manifest.800e6e3c2d0612f88fc5a6974a4eef8f.js": "/anno1800helper/precache-manifest.800e6e3c2d0612f88fc5a6974a4eef8f.js",
   "service-worker.js": "/anno1800helper/service-worker.js",
   "static/css/2.e464e0be.chunk.css.map": "/anno1800helper/static/css/2.e464e0be.chunk.css.map",
-  "static/css/main.2cc3ebec.chunk.css.map": "/anno1800helper/static/css/main.2cc3ebec.chunk.css.map"
+  "static/css/main.e0740451.chunk.css.map": "/anno1800helper/static/css/main.e0740451.chunk.css.map"
 }
