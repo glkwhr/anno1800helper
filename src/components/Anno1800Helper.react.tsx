@@ -41,6 +41,10 @@ class Anno1800Helper extends React.Component {
   }
 
   render() {
+    let defaultValue: string = "english";
+    if (navigator.language.startsWith("zh")) {
+      defaultValue = "chinese";
+    }
     return (
       <Layout className="Anno1800Helper">
         <Header className="Anno1800Helper-Header">
@@ -53,7 +57,7 @@ class Anno1800Helper extends React.Component {
                       extra={
                         <div className="Anno1800Helper-LanguageSelector">
                           <LanguageSelector languages={DataUtils.selectLanguages()}
-                                            defaultValue={LANG_MAP[navigator.language] || "english"}/>
+                                            defaultValue={defaultValue}/>
                         </div>
                       }>
           </PageHeader>

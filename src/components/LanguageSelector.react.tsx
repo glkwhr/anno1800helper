@@ -2,6 +2,7 @@ import {Select} from "antd";
 import * as React from 'react';
 import {connect} from "react-redux";
 import {updateLanguage} from "../redux/actions/actions";
+import {LANG_MAP} from "../types";
 
 const Option = Select.Option;
 
@@ -14,12 +15,20 @@ type Props = {
 class LanguageSelector extends React.Component<Props> {
 
   options: any = [];
+  defaultLanguage: string = "english";
 
   constructor(props: Props) {
     super(props);
     props.languages.forEach((language: string, idx: number) => {
       this.options.push(<Option key={idx} value={language}>{language.charAt(0).toUpperCase() + language.slice(1)}</Option>);
     });
+    let browserLang: string = navigator.language;
+    if (browserLang in LANG_MAP) {
+      this.defaultLanguage = LANG_MAP[browserLang];
+    } else if (browserLang.startsWith("zh")) {
+      this.defaultLanguage = "chinese";
+    }
+    this.props.updateLanguage(this.defaultLanguage);
   }
 
   onChange = (value: string) => {
@@ -27,9 +36,8 @@ class LanguageSelector extends React.Component<Props> {
   };
 
   render() {
-    const defaultValue = this.props.defaultValue;
     return (
-      <Select style={{width: 100}} defaultValue={defaultValue} onChange={this.onChange}>
+      <Select style={{width: 100}} defaultValue={this.defaultLanguage} onChange={this.onChange}>
         {this.options}
       </Select>
     );
