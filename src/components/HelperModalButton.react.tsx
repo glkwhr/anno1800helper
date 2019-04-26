@@ -1,5 +1,6 @@
 import {Button, Modal} from "antd";
 import * as React from 'react';
+import ReactGA from "react-ga";
 import {HELP_MODAL_CONTENT_LOCALTEXT, HELP_MODAL_TITLE_LOCALTEXT} from "../constants";
 import LocalizedText from './LocalizedText.react';
 
@@ -18,10 +19,19 @@ class HelperModalButton extends React.Component<{}, State> {
     this.setState({ modalVisible: modalVisible });
   }
 
+  onClick = () => {
+    this.setModalVisible(true);
+    ReactGA.event({
+      category: 'Usage',
+      action: 'Click Help',
+      label: 'Production Calculator'
+    });
+  };
+
   render() {
     return (
       <div>
-        <Button shape="circle" icon="question" onClick={() => this.setModalVisible(true)} />
+        <Button shape="circle" icon="question" onClick={this.onClick} />
         <Modal
           title={<LocalizedText localText={HELP_MODAL_TITLE_LOCALTEXT}/>}
           centered

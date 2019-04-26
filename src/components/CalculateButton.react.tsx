@@ -1,5 +1,6 @@
 import {Button} from "antd";
 import * as React from 'react';
+import ReactGA from 'react-ga';
 import {connect} from "react-redux";
 import {CALCULATE_BUTTON_TEXT_LOCALTEXT} from "../constants";
 import {updateFactoryStates} from "../redux/actions/actions";
@@ -25,6 +26,11 @@ class CalculateButton extends React.Component<Props> {
 
   onClick = () => {
     this.props.updateFactoryStates(calculateNextFactoryStates(this.props.populations, this.props.factoryStates));
+    ReactGA.event({
+      category: 'Usage',
+      action: 'Clicked Calculate',
+      label: 'Production Calculator'
+    });
   };
 
   render() {

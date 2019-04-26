@@ -1,7 +1,8 @@
 import {Col, Layout, PageHeader, Row} from 'antd';
 import * as React from 'react';
-import '../css/anno1800Helper.css';
+import ReactGA from 'react-ga';
 import {PAGE_HEADER_TITLE_LOCALTEXT} from "../constants";
+import '../css/anno1800Helper.css';
 import {LANG_MAP, PopulationLevel} from '../types';
 import * as DataUtils from '../utils/dataUtils';
 import CalculateButton from './CalculateButton.react';
@@ -15,6 +16,8 @@ const {
   Header, Content, Footer,
 } = Layout;
 
+ReactGA.initialize('UA-138969876-1');
+
 class Anno1800Helper extends React.Component {
 
   populationLevels: [PopulationLevel];
@@ -22,6 +25,7 @@ class Anno1800Helper extends React.Component {
   constructor(props: any) {
     super(props);
     this.populationLevels = DataUtils.selectPopulationLevels();
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }
 
   createPopulationLevelInputs(): [React.Component] {
