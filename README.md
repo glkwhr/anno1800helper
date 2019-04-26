@@ -15,7 +15,7 @@ Game: [Anno 1800](https://www.ubisoft.com/en-us/game/anno-1800/)
   - You can adjust factory amount (or efficiency), the corresponding efficiency (or amount) will be updated accordingly (for current population)
 
 ### Mobile Optimized (ish)
-There have been some great tools with the similar functionality, but few of them is optimized for mobile devices. Because one of the major purposes for this project is that I want to use my smartphone or tablet to do the calculation while playing the game.
+There have been some great tools with the similar functionality, but few of them is optimized for mobile devices. Because one of the major purposes for this project is to use smartphone or tablet to do the calculation while playing the game.
 
 #### View on Smartphone
 ![smartphone_demo2](https://user-images.githubusercontent.com/4232536/56775117-7948dc80-677a-11e9-8243-49e3627ebd41.gif)
