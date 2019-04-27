@@ -1,3 +1,20 @@
+// Supported language list
+export const LANG_MAP: string[] = [
+  "brazilian",
+  "chinese",
+  "english",
+  "french",
+  "german",
+  "italian",
+  "japanese",
+  "korean",
+  "polish",
+  "portuguese",
+  "russian",
+  "spanish",
+  "taiwanese"
+];
+
 // Page header title
 export const PAGE_HEADER_TITLE_LOCALTEXT = {
   english: 'Anno 1800 Helper',

@@ -55,11 +55,3 @@ export type State = {
 };
 
 export type GuidMap<T> = { [key: number]: T };
-
-export const LANG_MAP: { [key: string]: string } = {
-  'zh': 'chinese',
-  'zh-CN': 'chinese',
-  'zh-TW': 'taiwanese',
-  'en': 'english',
-  'en-US': 'english',
-};
