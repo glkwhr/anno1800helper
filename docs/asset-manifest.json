@@ -1,15 +1,15 @@
 {
-  "main.css": "/anno1800helper/static/css/main.e0740451.chunk.css",
-  "main.js": "/anno1800helper/static/js/main.575960a6.chunk.js",
-  "main.js.map": "/anno1800helper/static/js/main.575960a6.chunk.js.map",
+  "main.css": "/anno1800helper/static/css/main.881078b0.chunk.css",
+  "main.js": "/anno1800helper/static/js/main.f252961b.chunk.js",
+  "main.js.map": "/anno1800helper/static/js/main.f252961b.chunk.js.map",
   "runtime~main.js": "/anno1800helper/static/js/runtime~main.326bd53b.js",
   "runtime~main.js.map": "/anno1800helper/static/js/runtime~main.326bd53b.js.map",
   "static/css/2.e464e0be.chunk.css": "/anno1800helper/static/css/2.e464e0be.chunk.css",
   "static/js/2.9462ad73.chunk.js": "/anno1800helper/static/js/2.9462ad73.chunk.js",
   "static/js/2.9462ad73.chunk.js.map": "/anno1800helper/static/js/2.9462ad73.chunk.js.map",
   "index.html": "/anno1800helper/index.html",
-  "precache-manifest.5861fba6bc3132b87c2c773560b5d440.js": "/anno1800helper/precache-manifest.5861fba6bc3132b87c2c773560b5d440.js",
+  "precache-manifest.a2b6b6f98939751c7b224eded4c1f7e5.js": "/anno1800helper/precache-manifest.a2b6b6f98939751c7b224eded4c1f7e5.js",
   "service-worker.js": "/anno1800helper/service-worker.js",
   "static/css/2.e464e0be.chunk.css.map": "/anno1800helper/static/css/2.e464e0be.chunk.css.map",
-  "static/css/main.e0740451.chunk.css.map": "/anno1800helper/static/css/main.e0740451.chunk.css.map"
+  "static/css/main.881078b0.chunk.css.map": "/anno1800helper/static/css/main.881078b0.chunk.css.map"
 }
