@@ -16,14 +16,14 @@ class HelperModalButton extends React.Component<{}, State> {
   }
 
   setModalVisible(modalVisible: boolean) {
-    this.setState({ modalVisible: modalVisible });
+    this.setState({modalVisible: modalVisible});
   }
 
   onClick = () => {
     this.setModalVisible(true);
     ReactGA.event({
       category: 'Usage',
-      action: 'Click Help',
+      action: 'Clicked Help',
       label: 'Production Calculator'
     });
   };
@@ -31,15 +31,13 @@ class HelperModalButton extends React.Component<{}, State> {
   render() {
     return (
       <div>
-        <Button shape="circle" icon="question" onClick={this.onClick} />
-        <Modal
-          title={<LocalizedText localText={HELP_MODAL_TITLE_LOCALTEXT}/>}
-          centered
-          visible={this.state.modalVisible}
-          onOk={() => this.setModalVisible(false)}
-          onCancel={() => this.setModalVisible(false)}
-        >
-          <LocalizedText localText={HELP_MODAL_CONTENT_LOCALTEXT} />
+        <Button shape="circle" icon="question" onClick={this.onClick}/>
+        <Modal title={<LocalizedText localText={HELP_MODAL_TITLE_LOCALTEXT}/>}
+               centered
+               visible={this.state.modalVisible}
+               onOk={() => this.setModalVisible(false)}
+               onCancel={() => this.setModalVisible(false)}>
+          <LocalizedText localText={HELP_MODAL_CONTENT_LOCALTEXT}/>
         </Modal>
       </div>
     );
