@@ -3,13 +3,12 @@ import * as React from 'react';
 import ReactGA from 'react-ga';
 import {PAGE_HEADER_TITLE_LOCALTEXT} from "../constants";
 import '../css/anno1800Helper.css';
-import {LANG_MAP, PopulationLevel} from '../types';
 import * as DataUtils from '../utils/dataUtils';
 import CalculateButton from './CalculateButton.react';
 import HelperModalButton from "./HelperModalButton.react";
 import LanguageSelector from './LanguageSelector.react';
 import LocalizedText from "./LocalizedText.react";
-import PopulationLevelInput from './PopulationLevelInput.react';
+import PopulationLevelOverview from './PopulationLevelOverview.react';
 import ProductionOverview from './ProductionOverview.react';
 
 const {
@@ -20,24 +19,9 @@ ReactGA.initialize('UA-138969876-1');
 
 class Anno1800Helper extends React.Component {
 
-  populationLevels: [PopulationLevel];
-
   constructor(props: any) {
     super(props);
-    this.populationLevels = DataUtils.selectPopulationLevels();
     ReactGA.pageview(window.location.pathname + window.location.search);
-  }
-
-  createPopulationLevelInputs(): [React.Component] {
-    const elements: any = [];
-    this.populationLevels.forEach((populationLevel: PopulationLevel, idx: number) => {
-      elements.push(
-        <Col key={idx} sm={8} xs={12}>
-          <PopulationLevelInput populationLevel={populationLevel}/>
-        </Col>
-      );
-    });
-    return elements;
   }
 
   render() {
@@ -64,11 +48,11 @@ class Anno1800Helper extends React.Component {
         </Header>
         <Content
           className="Anno1800Helper-content">
-          <Row type="flex" justify="start" align="middle">
-            {this.createPopulationLevelInputs()}
-          </Row>
+          <div>
+            <PopulationLevelOverview/>
+          </div>
           <Row align="middle">
-            <Col xs={{span: 4, offset: 10}} sm={{span: 4, offset: 11}} className="Anno1800Helper-CalculateButton">
+            <Col xs={{span: 4, offset: 10}} sm={{span: 4, offset: 10}} className="Anno1800Helper-CalculateButton">
               <CalculateButton/>
             </Col>
             <Col xs={{span: 4, offset: 3}} sm={{span: 1, offset: 1}} className="Anno1800Helper-HelpButton">

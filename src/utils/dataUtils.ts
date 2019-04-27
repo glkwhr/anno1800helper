@@ -1,3 +1,4 @@
+import {ICONS} from "../data/icons";
 import {params} from '../data/params_2019-04-17_full';
 import {Factory, GuidMap, PopulationLevel, Product} from "../types";
 
@@ -69,4 +70,7 @@ export const selectProductByGuid = (guid: number): Product => {
 export const selectFactoryByProductGuid = (guid: number): Factory | undefined => {
   let product: Product = selectProductByGuid(guid);
   return (product.producer && selectFactoryByGuid(product.producer)) || undefined;
+};
+export const selectIconByName = (name: string): string | undefined => {
+  return ICONS[name];
 };
