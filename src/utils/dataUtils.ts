@@ -1,6 +1,6 @@
 import {ICONS} from "../data/icons";
 import {params} from '../data/params_2019-04-17_full';
-import {Factory, GuidMap, PopulationLevel, Product} from "../types";
+import {Factory, GuidMap, PopulationLevel, Product, Workforce} from "../types";
 
 export const selectPopulationLevels = (): any => {
   return params.populationLevels;
@@ -16,6 +16,9 @@ export const selectLanguages = (): any => {
 };
 export const selectProductFilters = (): any => {
   return params.productFilter;
+};
+export const selectWorkforces = (): any => {
+  return params.workforce;
 };
 
 
@@ -50,12 +53,22 @@ function createProductGuidMap(): GuidMap<Product> {
   return productGuidMap;
 }
 
+function createWorkforceGuidMap(): GuidMap<Workforce> {
+  let workforceGuidMap: GuidMap<Workforce> = {};
+  selectWorkforces().forEach(
+    (workforce: Workforce) => {
+      workforceGuidMap[workforce.guid] = workforce;
+    }
+  );
+  return workforceGuidMap;
+}
+
 
 // guid maps
 const populationLevelGuidMap: GuidMap<PopulationLevel> = createPopulationLevelGuidMap();
 const factoryGuidMap: GuidMap<Factory> = createFactoryGuidMap();
 const productGuidMap: GuidMap<Product> = createProductGuidMap();
-
+const workforceGuidMap: GuidMap<Workforce> = createWorkforceGuidMap();
 
 // selector functions
 export const selectPopulationLevelByGuid = (guid: number): PopulationLevel => {
@@ -70,6 +83,12 @@ export const selectProductByGuid = (guid: number): Product => {
 export const selectFactoryByProductGuid = (guid: number): Factory | undefined => {
   let product: Product = selectProductByGuid(guid);
   return (product.producer && selectFactoryByGuid(product.producer)) || undefined;
+};
+export const selectWorkforceByGuid = (guid: number): Workforce => {
+  return workforceGuidMap[guid] || {};
+};
+export const selectWorkforceGuidMap = (): GuidMap<Workforce> => {
+  return {...workforceGuidMap}
 };
 export const selectIconByName = (name: string): string | undefined => {
   return ICONS[name];

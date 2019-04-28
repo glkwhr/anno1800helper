@@ -11,17 +11,17 @@ Game: [Anno 1800](https://www.ubisoft.com/en-us/game/anno-1800/)
 - Enter population or house amount for each population level
 
 - Click `Calculate` button
-  - The amount of each kind of factories will be calculated (from population needs) and displayed below
+  - The required workforce and the amount of each kind of factories will be calculated (from population needs) and displayed below
   - You can adjust factory amount (or efficiency), the corresponding efficiency (or amount) will be updated accordingly (for current population)
 
 ### Mobile Optimized (ish)
 There have been some great tools with the similar functionality, but few of them is optimized for mobile devices. Because one of the major purposes for this project is to use smartphone or tablet to do the calculation while playing the game.
 
 #### View on Smartphone
-![smartphone_demo](https://user-images.githubusercontent.com/4232536/56845921-505d4000-687d-11e9-83e2-bd50b4a2da02.gif)
+![smartphone_demo](https://user-images.githubusercontent.com/4232536/56857177-66bbd800-691f-11e9-8ffd-8a581eb9a145.gif)
 
 #### View on Tablet
-![tablet_demo](https://user-images.githubusercontent.com/4232536/56845952-a29e6100-687d-11e9-8e93-e7f4bf586948.gif)  
+![tablet_demo](https://user-images.githubusercontent.com/4232536/56857197-720f0380-691f-11e9-95d0-2c8cf4e2b93b.gif)  
   
 
 ## Wishlist
@@ -30,6 +30,8 @@ There have been some great tools with the similar functionality, but few of them
 - [x] group factories by product type
 
 - [x] allow input house amount
+
+- [x] add required workforce to calculation result
 
 - [ ] group population levels by population type (new world/old world)
 

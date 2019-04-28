@@ -12,6 +12,7 @@ import LanguageSelector from './LanguageSelector.react';
 import LocalizedText from "./LocalizedText.react";
 import PopulationLevelOverview from './PopulationLevelOverview.react';
 import ProductionOverview from './ProductionOverview.react';
+import WorkforceOverview from './WorkforceOverview.react';
 
 const {
   Header, Content, Footer,
@@ -70,13 +71,20 @@ class Anno1800Helper extends React.Component {
               <HelperModalButton/>
             </Col>
           </Row>
+          <div className="Anno1800Helper-WorkforceOverview">
+            <WorkforceOverview/>
+          </div>
           <div className="Anno1800Helper-ProductionOverview">
             <ProductionOverview/>
           </div>
         </Content>
         <Footer className="Anno1800Helper-footer">
           <Row type="flex" justify="center" align="middle">
-            {'Anno 1800 Helper |'}
+            <a href="https://github.com/glkwhr/anno1800helper"
+               target="_blank"
+               rel="noreferrer noopener"
+               style={{paddingRight: 5}}>Anno 1800 Helper</a>
+            {' | '}
             <iframe
               style={{paddingLeft: 5}}
               src="https://ghbtns.com/github-btn.html?user=glkwhr&repo=Anno1800Helper&type=star&count=true"

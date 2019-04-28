@@ -20,13 +20,16 @@ export interface PopulationLevel extends BasicItem {
   needs: [Need],
 }
 
+export interface Workforce extends BasicItem {
+}
+
 export interface Product extends BasicItem {
   producer?: number,  // producer guid
 }
 
 // product category
 export interface ProductFilter extends BasicItem {
-  products: [number];
+  products: [number],
 }
 
 export interface FactoryProductMeta {
@@ -39,7 +42,7 @@ export interface Factory extends BasicItem {
   tpmin: number,  // unit per minute
   outputs: [FactoryProductMeta],
   inputs?: [FactoryProductMeta],
-  maintenance?: any,  // currently don't care
+  maintenances?: any,  // coin; workforce
 }
 
 export type FactoryState = {

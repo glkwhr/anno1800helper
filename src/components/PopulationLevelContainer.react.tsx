@@ -61,7 +61,7 @@ class PopulationLevelInput extends React.Component<Props> {
         }
         headStyle={{color: "white", borderBottom: 'none'}}
         bodyStyle={{padding: 10, textAlign: 'center'}}
-        className="Anno1800Helper-FactoryContainer"
+        className="Anno1800Helper-PopulationLevelContainer"
       >
         <div>
           <Row justify="center" align="middle">
