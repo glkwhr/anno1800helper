@@ -2,6 +2,7 @@ import {Col, Layout, PageHeader, Row} from 'antd';
 import * as React from 'react';
 import ReactGA from 'react-ga';
 import ISO6391 from 'iso-639-1';
+import LocaleCode from 'locale-code';
 import {PAGE_HEADER_TITLE_LOCALTEXT, LANG_MAP} from "../constants";
 import '../css/anno1800Helper.css';
 import * as DataUtils from '../utils/dataUtils';
@@ -27,7 +28,7 @@ class Anno1800Helper extends React.Component {
 
   decideDefaultLanguage() {
     const languageCode: string = navigator.language;
-    const languageName: string = ISO6391.getName(languageCode).toLowerCase();
+    const languageName: string = ISO6391.getName(languageCode).toLowerCase() || LocaleCode.getLanguageName(languageCode).toLowerCase();
     const index = LANG_MAP.indexOf(languageName);
     let defaultValue: string = "english";
 
