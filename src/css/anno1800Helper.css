@@ -46,9 +46,30 @@
   padding-top: 10px;
   text-align: center;
 }
-.Anno1800Helper-ProductionOverview {
+
+.Anno1800Helper-WorkforceOverview {
   padding-top: 30px;
+}
+
+.Anno1800Helper-ProductionOverview {
+  /*padding-top: 30px;*/
   padding-bottom: 30px;
+}
+
+.Anno1800Helper-PopulationLevelContainer {
+  background-color: #424f51;
+  border: 2px solid black;
+  border-top: none;
+  border-left: none;
+  border-radius: 5px;
+}
+
+.Anno1800Helper-WorkforceContainer {
+  background-color: #424f51;
+  border: 2px solid black;
+  border-top: none;
+  border-left: none;
+  border-radius: 5px;
 }
 
 .Anno1800Helper-FactoryContainer {

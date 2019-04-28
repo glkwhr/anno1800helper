@@ -1,5 +1,6 @@
 import {Factory, FactoryProductMeta, FactoryState, Need, PopulationLevel, Product, TotalNeeds} from "../types";
-import * as DataUtils from './dataUtils';
+import * as DataUtils from "./dataUtils";
+import {selectFactoryByGuid, selectWorkforceGuidMap} from "./dataUtils";
 
 function calculatePopulationNeeds(populations: { [guid: number]: number }): TotalNeeds {
   // for each needed product, calculate total tpmin (depth === 0)
@@ -95,4 +96,31 @@ export function calculateFactoryCountFromFactoryBoost(boost: number, factoryTpmi
 
 export function calculateFactoryBoostFromFactoryCount(count: number, factoryTpmin: number, totalTpmin: number): number {
   return (100 * totalTpmin / factoryTpmin / count);
+}
+
+export function calculateWorkforceNeedsFromFactoryStates(
+  factoryStates: { [guid: number]: FactoryState }
+): { [guid: number]: number } {
+  let workforceNeeds: { [guid: number]: number } = {};
+  let workforceGuidList: number[] = Object.keys(selectWorkforceGuidMap()).map((s: string) => {
+    return +s;
+  });
+  Object.keys(factoryStates).forEach(
+    (guidString: string) => {
+      let guid: number = +guidString;
+      let factory: Factory = selectFactoryByGuid(guid);
+      factory.maintenances && factory.maintenances.forEach(
+        (maintenanceNeed: { Product: number, Amount: number }) => {
+          if (workforceGuidList.indexOf(maintenanceNeed.Product) > -1) {
+            // cannot use `productGuid in guidList` for some reason (haven't figure out)
+            let workforceNeed: number = maintenanceNeed.Amount * factoryStates[guid].count;
+            (workforceNeeds[maintenanceNeed.Product]
+              && (workforceNeeds[maintenanceNeed.Product] += workforceNeed))
+            || (workforceNeeds[maintenanceNeed.Product] = workforceNeed);
+          }
+        }
+      );
+    }
+  );
+  return workforceNeeds;
 }
