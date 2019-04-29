@@ -1,7 +1,9 @@
 import {Col, Layout, PageHeader, Row} from 'antd';
 import * as React from 'react';
 import ReactGA from 'react-ga';
-import {PAGE_HEADER_TITLE_LOCALTEXT} from "../constants";
+import ISO6391 from 'iso-639-1';
+import LocaleCode from 'locale-code';
+import {PAGE_HEADER_TITLE_LOCALTEXT, LANG_MAP} from "../constants";
 import '../css/anno1800Helper.css';
 import * as DataUtils from '../utils/dataUtils';
 import CalculateButton from './CalculateButton.react';
@@ -25,11 +27,20 @@ class Anno1800Helper extends React.Component {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }
 
-  render() {
+  decideDefaultLanguage() {
+    const languageCode: string = navigator.language;
+    const languageName: string = ISO6391.getName(languageCode).toLowerCase() || LocaleCode.getLanguageName(languageCode).toLowerCase();
+    const index = LANG_MAP.indexOf(languageName);
     let defaultValue: string = "english";
-    if (navigator.language.startsWith("zh")) {
-      defaultValue = "chinese";
+
+    if (index > -1) {
+      defaultValue = LANG_MAP[index];
     }
+
+    return defaultValue;
+  }
+
+  render() {
     return (
       <Layout className="Anno1800Helper">
         <Header className="Anno1800Helper-Header">
@@ -42,7 +53,7 @@ class Anno1800Helper extends React.Component {
                       extra={
                         <div className="Anno1800Helper-LanguageSelector">
                           <LanguageSelector languages={DataUtils.selectLanguages()}
-                                            defaultValue={defaultValue}/>
+                                            defaultValue={this.decideDefaultLanguage()}/>
                         </div>
                       }>
           </PageHeader>
