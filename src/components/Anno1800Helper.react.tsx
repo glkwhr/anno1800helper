@@ -1,9 +1,9 @@
 import {Col, Layout, PageHeader, Row} from 'antd';
-import * as React from 'react';
-import ReactGA from 'react-ga';
 import ISO6391 from 'iso-639-1';
 import LocaleCode from 'locale-code';
-import {PAGE_HEADER_TITLE_LOCALTEXT, LANG_MAP} from "../constants";
+import * as React from 'react';
+import ReactGA from 'react-ga';
+import {LANG_MAP, PAGE_HEADER_TITLE_LOCALTEXT} from "../constants";
 import '../css/anno1800Helper.css';
 import * as DataUtils from '../utils/dataUtils';
 import CalculateButton from './CalculateButton.react';
@@ -35,6 +35,9 @@ class Anno1800Helper extends React.Component {
 
     if (index > -1) {
       defaultValue = LANG_MAP[index];
+    } else if (languageCode === 'zh-TW') {
+      // game data uses different naming from ISO
+      defaultValue = 'taiwanese';
     }
 
     return defaultValue;
