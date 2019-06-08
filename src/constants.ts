@@ -27,6 +27,12 @@ export const CALCULATE_BUTTON_TEXT_LOCALTEXT = {
   chinese: '计算'
 };
 
+// Reset button text
+export const RESET_BUTTON_TEXT_LOCALTEXT = {
+  english: 'Reset',
+  chinese: '重置'
+};
+
 // Help modal
 export const HELP_MODAL_TITLE_LOCALTEXT = {
   english: 'How to use',

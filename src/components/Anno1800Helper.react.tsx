@@ -12,6 +12,7 @@ import LanguageSelector from './LanguageSelector.react';
 import LocalizedText from "./LocalizedText.react";
 import PopulationLevelOverview from './PopulationLevelOverview.react';
 import ProductionOverview from './ProductionOverview.react';
+import ResetButton from "./ResetButton.react";
 import WorkforceOverview from './WorkforceOverview.react';
 
 const {
@@ -27,7 +28,7 @@ class Anno1800Helper extends React.Component {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }
 
-  decideDefaultLanguage() {
+  static decideDefaultLanguage() {
     const languageCode: string = navigator.language;
     const languageName: string = ISO6391.getName(languageCode).toLowerCase() || LocaleCode.getLanguageName(languageCode).toLowerCase();
     const index = LANG_MAP.indexOf(languageName);
@@ -56,7 +57,7 @@ class Anno1800Helper extends React.Component {
                       extra={
                         <div className="Anno1800Helper-LanguageSelector">
                           <LanguageSelector languages={DataUtils.selectLanguages()}
-                                            defaultValue={this.decideDefaultLanguage()}/>
+                                            defaultValue={Anno1800Helper.decideDefaultLanguage()}/>
                         </div>
                       }>
           </PageHeader>
@@ -67,8 +68,11 @@ class Anno1800Helper extends React.Component {
             <PopulationLevelOverview/>
           </div>
           <Row align="middle">
-            <Col xs={{span: 4, offset: 10}} sm={{span: 4, offset: 10}} className="Anno1800Helper-CalculateButton">
+            <Col xs={{span: 4, offset: 5}} sm={{span: 4, offset: 9}} className="Anno1800Helper-CalculateButton">
               <CalculateButton/>
+            </Col>
+            <Col xs={{span: 2, offset: 3}} sm={{span: 2, offset: 0}} className="Anno1800Helper-CalculateButton">
+              <ResetButton/>
             </Col>
             <Col xs={{span: 4, offset: 3}} sm={{span: 1, offset: 1}} className="Anno1800Helper-HelpButton">
               <HelperModalButton/>
