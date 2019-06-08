@@ -4,23 +4,23 @@ self.__precacheManifest = [
     "url": "/anno1800helper/static/js/runtime~main.326bd53b.js"
   },
   {
-    "revision": "2ea672070a20fdf6f256",
-    "url": "/anno1800helper/static/js/main.fe7d00e2.chunk.js"
+    "revision": "063562da58ea3432d48e",
+    "url": "/anno1800helper/static/js/main.85586e9f.chunk.js"
   },
   {
-    "revision": "0b675e55941e80c0c321",
-    "url": "/anno1800helper/static/js/2.569c33ac.chunk.js"
+    "revision": "a0a7bfab90ddca71368e",
+    "url": "/anno1800helper/static/js/2.f3d14a26.chunk.js"
   },
   {
-    "revision": "2ea672070a20fdf6f256",
+    "revision": "063562da58ea3432d48e",
     "url": "/anno1800helper/static/css/main.f67f994f.chunk.css"
   },
   {
-    "revision": "0b675e55941e80c0c321",
+    "revision": "a0a7bfab90ddca71368e",
     "url": "/anno1800helper/static/css/2.e464e0be.chunk.css"
   },
   {
-    "revision": "36c4f09205ebd98b6523f765478cedb0",
+    "revision": "9e6a809a194910e25794c7e78bbb877e",
     "url": "/anno1800helper/index.html"
   }
 ];
