@@ -1,5 +1,6 @@
 import {FactoryState} from "../../types";
 import {
+  RESET,
   UPDATE_FACTORY_BOOST,
   UPDATE_FACTORY_COUNT,
   UPDATE_FACTORY_STATES,
@@ -52,5 +53,12 @@ export const updateFactoryStates = (newFactoryStates: { [guid: number]: FactoryS
     payload: {
       newFactoryStates: newFactoryStates,
     }
+  };
+};
+
+export const reset = () => {
+  return {
+    type: RESET,
+    payload: {},
   };
 };

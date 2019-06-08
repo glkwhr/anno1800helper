@@ -1,5 +1,5 @@
 import {FactoryState} from "../../types";
-import {Action, UPDATE_FACTORY_BOOST, UPDATE_FACTORY_COUNT, UPDATE_FACTORY_STATES} from "../actions/actionTypes";
+import {Action, RESET, UPDATE_FACTORY_BOOST, UPDATE_FACTORY_COUNT, UPDATE_FACTORY_STATES} from "../actions/actionTypes";
 
 const initialState: { [guid: number]: FactoryState } = {};
 
@@ -25,6 +25,9 @@ export default function (state = initialState, action: Action) {
     }
     case UPDATE_FACTORY_STATES: {
       return action.payload.newFactoryStates;
+    }
+    case RESET: {
+      return {...initialState};
     }
     default: {
       return {...state};
